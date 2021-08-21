@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/native";
-import { useWindowDimensions } from "react-native";
+import { Dimensions } from "react-native";
 
 const StyledInput = styled.TextInput.attrs(({ theme }) => ({
   placeholderTextColor: theme.main,
 }))`
   width: ${({ width }) => width - 40}px;
-  margin: 30px;
+  margin: 3px 0;
   padding: 15px 20px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.itemBackground};
@@ -16,7 +16,7 @@ const StyledInput = styled.TextInput.attrs(({ theme }) => ({
 `;
 
 const Input = ({ placeholder, value, onChangeText, onSubmitEditing }) => {
-  const width = useWindowDimensions().width;
+  const width = Dimensions.get("window").width;
 
   return (
     <StyledInput
