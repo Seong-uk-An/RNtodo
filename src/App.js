@@ -5,7 +5,7 @@ import { theme } from "./theme";
 import Input from "./components/Input";
 import Task from "./components/Task";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { AppLoading } from "expo";
+import AppLoading from "expo-app-loading";
 
 const Container = styled.SafeAreaView`
   flex: 1;
