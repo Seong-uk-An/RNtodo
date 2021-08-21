@@ -33,8 +33,15 @@ const Task = ({ item, deleteTask, toggleTask, updateTask }) => {
   const _onSubmitEditing = () => {
     if (isEditing) {
       const editedTask = Object.assign({}, item, { text });
-      setIsEditing(false);
       updateTask(editedTask);
+      setIsEditing(false);
+    }
+  };
+
+  const _onBlur = () => {
+    if (isEditing) {
+      setIsEditing(false);
+      setText(item.text);
     }
   };
 
@@ -43,6 +50,7 @@ const Task = ({ item, deleteTask, toggleTask, updateTask }) => {
       value={text}
       onChangeText={(text) => setText(text)}
       onSubmitEditing={_onSubmitEditing}
+      onBlur={_onBlur}
     />
   ) : (
     <Container>
